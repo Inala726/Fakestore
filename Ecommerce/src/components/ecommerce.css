@@ -1,56 +1,91 @@
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 60px;
-    border-bottom: 1px solid whitesmoke;
-    background-color: #2f194f52;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  border-bottom: 1px solid whitesmoke;
 }
-.navbar .logo{
-    font-size: x-large;
-    font-weight: 700;
+.navbar .logo {
+  font-size: x-large;
+  font-weight: 700;
 }
-.navbar .search{
-    width: 350px;
-    /* border-radius: 8px ; */
-    height: 35px;
-    border: 1px solid none;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.navbar .search {
+  width: 350px;
+  border-radius: 8px;
+  height: 35px;
+  border: 1px solid whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.navbar .search input{
-    width: 90%;
-    padding: 8px;
-    height: 100%;
-    border: transparent;
-    border-radius: 8px;
+.navbar .search input {
+  width: 90%;
+  padding: 8px;
+  height: 100%;
+  border: transparent;
+  border-radius: 8px;
 }
-.navbar .third{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}   
-.section{
-    width: 100%;
-    height: 400px;
-    background: url('../assets/images/wallpaperflare.com_wallpaper (1).jpg')center center/cover black;
+.navbar .third {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.section p{
-    color: whitesmoke;
-    margin-left: 100px;
-    transform: translateY(100px);
-    line-height: 1.5;
-    font-size: 45px;
-    font-weight: bolder;
+.section {
+  width: 100%;
+  height: 400px;
+  background: url("../assets/images/wallpaperflare.com_wallpaper (1).jpg")
+    center center/cover black;
 }
-.heading{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
+.section p {
+  color: whitesmoke;
+  margin-left: 100px;
+  transform: translateY(100px);
+  line-height: 1.5;
+  font-size: 45px;
+  font-weight: bolder;
 }
-.products{
-    display: flex;
-    /* grid-template-columns: repeat(4,1fr); */
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.products {
+  margin-top: 30px;
+  margin-left: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.products .product-card {
+  width: 280px;
+  height: 300px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-size: small;
+}
+.products img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+.products .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.products .inner button {
+  background-color: white;
+  border: 1px solid gainsboro;
+  padding: 5px;
+  border-radius: 5px;
+}
+.products .product-card .btn {
+  margin-top: 5px;
+  background-color: rgb(195, 201, 202);
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }

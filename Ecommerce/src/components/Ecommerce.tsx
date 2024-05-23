@@ -3,8 +3,6 @@ import "./ecommerce.css";
 import { FaCartShopping, FaPerson } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import picture from '../assets/images/wallpaperflare.com_wallpaper (1).jpg'
-
 // import React from 'react'
 
 interface IProduct {
@@ -18,6 +16,7 @@ interface IProduct {
 
 const Ecommerce = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [cart, setCart] = useState<IProduct[]>([])
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -32,6 +31,19 @@ const Ecommerce = () => {
     };
     fetchProduct();
   }, []);
+
+  const addToCart = (id:number) =>{
+      const product = products.find((item)=>item.id == id)
+      if(product){
+      setCart((prevCart) => [...prevCart, product])
+      alert('Product added successfully')
+      }
+      if(!product){
+          alert('Error while addind to cart')
+        }
+  }
+  console.log(cart);
+  
 
   return (
     <>
@@ -55,22 +67,20 @@ const Ecommerce = () => {
         </p>
       </div>
       <div className="heading">
-        <h1>Available Products</h1>
+        <h1>Available Products {cart.length}</h1>
       </div>
       <div className="products">
-        <div className="product-card">
-          {products.map((product) => (
-            <>
-              <img src={product.image} alt="" />
-              <p>{product.title}</p>
-              <div className="inner">
-                <button>{product.category}</button>
-                <p>{`$${product.price}`}</p>
-              </div>
-              <button>Add to cart</button>
-            </>
-          ))}
-        </div>
+        {products.map((product) => (
+          <div className="product-card">
+            <img src={product.image} alt="" />
+            <p>{product.title}</p>
+            <div className="inner">
+              <button>{product.category}</button>
+              <p>{`$${product.price}`}</p>
+            </div>
+            <button className="btn" onClick={() => addToCart(product.id)}>Add to cart</button>
+          </div>
+        ))}
       </div>
     </>
   );
