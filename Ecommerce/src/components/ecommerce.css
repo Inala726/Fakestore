@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 60px;
+  height: 70px;
   border-bottom: 1px solid whitesmoke;
 }
 .navbar .logo {
@@ -88,4 +89,15 @@
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
+}
+.dot{
+  width: 15px;
+  text-align: center;
+  height: 15px;
+  border-radius: 50%;
+  font-size: x-small;
+  transform: translateX(-20px);
+  margin-bottom: 33px;
+  background-color: black;
+  color: white;
 }
