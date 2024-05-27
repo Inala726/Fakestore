@@ -10,26 +10,30 @@ interface modalProps {
 }
 
 const Modal = ({ open, onClose, cart }: modalProps) => {
-  const [checkout, setCheckout] = useState(0)
+  const [checkout, setCheckout] = useState(0);
 
   useEffect(() => {
-    const totalMerchandise = cart.reduce((total, item) => total + item.price, 0);
+    const totalMerchandise = cart.reduce(
+      (total, item) => total + item.price,
+      0
+    );
     setCheckout(totalMerchandise);
   }, [cart]);
 
-const proceedCheckout = () =>{
-  swal("Thanks for shopping", "Your order is on it's way", "success");
-}
-
+  const proceedCheckout = () => {
+    swal("Thanks for shopping", "Your order is on it's way", "success");
+  };
 
   return (
     <div className={`modal-container ${open ? "open" : ""}`} onClick={onClose}>
       <div className={`modal`} onClick={(e) => e.stopPropagation()}>
-          <div className="mh">
-            <p>Cart SHII</p>
-            <p className="close" onClick={onClose}>&times;</p>
-          </div>
-          <div className="main-content">
+        <div className="mh">
+          <p>Cart SHII</p>
+          <p className="close" onClick={onClose}>
+            &times;
+          </p>
+        </div>
+        <div className="main-content">
           <div className="cart">
             {cart.map((item) => (
               <div className="cart-card">
@@ -42,10 +46,10 @@ const proceedCheckout = () =>{
               </div>
             ))}
           </div>
-          <div className="checkout"> 
-          <div className="div">
-            <p>Merchandise:</p>
-            <p>{`$${checkout.toFixed(2)}`}</p>
+          <div className="checkout">
+            <div className="div">
+              <p>Merchandise:</p>
+              <p>{`$${checkout.toFixed(2)}`}</p>
             </div>
             <div className="div">
               <p>Estimated shipping cost:</p>
@@ -59,9 +63,9 @@ const proceedCheckout = () =>{
               Proceed to checkout
             </button>
           </div>
-          </div>
         </div>
       </div>
+    </div>
   );
 };
 

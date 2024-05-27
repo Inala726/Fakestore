@@ -40,7 +40,10 @@ const Ecommerce = () => {
     if (product) {
       setCart((prevCart) => {
         if (prevCart.find((item) => item.id === id)) {
-          alert("Product is already in the cart");
+          swal({
+            title: "Product already exists in the cart",
+            icon: "warning",
+          });
           return prevCart;
         }
         swal({

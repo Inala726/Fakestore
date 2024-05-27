@@ -1,87 +1,87 @@
-.modal-container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: ease-in-out 1s;
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 1s;
 }
-.modal-container.open{
-    display: flex;
+.modal-container.open {
+  display: flex;
 }
-.modal{
-    border-radius: 10px;
-    background-color: white;
-    width: 60%;
-    height: 50%;
-    overflow: scroll;
+.modal {
+  border-radius: 10px;
+  background-color: white;
+  width: 60%;
+  height: 50%;
+  overflow: scroll;
 }
-.mh{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    padding: 1rem;
-    top: 0px;
-    background-color: white;
-    font-size: x-large;
-    font-weight: bold;
+.mh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  padding: 1rem;
+  top: 0px;
+  background-color: white;
+  font-size: x-large;
+  font-weight: bold;
 }
-.close{
-    cursor: pointer;
-    font-size: 25px;
+.close {
+  cursor: pointer;
+  font-size: 25px;
 }
-.cart{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+.cart {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
 }
- .cart-card{
-    width: 220px;
-    padding: 0.5rem;
-    height: 200px;
-    font-size: small;
-    line-height: 2;
-    border-radius: 10px;
-    border: 1px solid gainsboro;
+.cart-card {
+  width: 220px;
+  padding: 0.5rem;
+  height: 200px;
+  font-size: small;
+  line-height: 2;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
 }
-.cart-card img{
-    width: 90%;
-    height: 40%;
-    object-fit: cover;
+.cart-card img {
+  width: 90%;
+  height: 40%;
+  object-fit: cover;
 }
-.main-content{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
-.cart-card button{
-    padding: 4px;
-    border-radius: 5px;
-    border: 1px solid gainsboro;
+.cart-card button {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
 }
-.cart-card .btn{
-    padding: 8px;
-    background-color: rgb(220, 20, 20);
-    color: white;
+.cart-card .btn {
+  padding: 8px;
+  background-color: rgb(220, 20, 20);
+  color: white;
 }
-.checkout{
-    display: grid;
-    line-height: 2.2;
+.checkout {
+  display: grid;
+  line-height: 2.2;
 }
-.checkout .div{
-    display: flex;
-    gap: 10px;
+.checkout .div {
+  display: flex;
+  gap: 10px;
 }
-.checkout button{
-    background-color: greenyellow ;
-    padding: 0.5rem;
-    border: 1px solid whitesmoke;
-    color: whitesmoke;
-    border-radius: 7px;
-    cursor: pointer;
+.checkout button {
+  background-color: greenyellow;
+  padding: 0.5rem;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 7px;
+  cursor: pointer;
 }
