@@ -4,6 +4,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "./Modal";
+import swal from "sweetalert";
 // import React from 'react'
 
 export interface IProduct {
@@ -42,7 +43,10 @@ const Ecommerce = () => {
           alert("Product is already in the cart");
           return prevCart;
         }
-        alert("Product added successfully");
+        swal({
+          title: "Product added successfully",
+          icon: "success",
+        });
         return [...prevCart, product];
       });
     } else {

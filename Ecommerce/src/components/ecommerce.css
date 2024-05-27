@@ -84,9 +84,10 @@
 }
 .products .product-card .btn {
   margin-top: 5px;
-  background-color: rgb(195, 201, 202);
+  background-color: rgb(119, 159, 245);
+  color: white;
   padding: 8px;
-  border: 1px solid black;
+  border: 1px solid whitesmoke;
   border-radius: 5px;
   cursor: pointer;
 }
