@@ -3,7 +3,7 @@ import "./ecommerce.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "./Modal";
+import Cart from "./Cart";
 import swal from "sweetalert";
 // import React from 'react'
 
@@ -57,7 +57,9 @@ const Ecommerce = () => {
     }
   };
 
-  console.log(cart);
+  const removeFromCart = (id: number) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
 
   return (
     <>
@@ -102,11 +104,12 @@ const Ecommerce = () => {
           </div>
         ))}
       </div>
-      <Modal
+      <Cart
         onClose={() => setModalOpen(false)}
         open={modalOpen}
         cart={cart}
-      ></Modal>
+        removeFromCart={removeFromCart}
+      ></Cart>
     </>
   );
 };

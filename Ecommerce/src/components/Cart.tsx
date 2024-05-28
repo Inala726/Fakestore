@@ -1,4 +1,4 @@
-import "./Modal.css";
+import "./Cart.css";
 import { IProduct } from "./Ecommerce";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
@@ -7,9 +7,10 @@ interface modalProps {
   open: boolean;
   onClose: () => void;
   cart: IProduct[];
+  removeFromCart: (id: number) => void;
 }
 
-const Modal = ({ open, onClose, cart }: modalProps) => {
+const Cart = ({ open, onClose, cart, removeFromCart }: modalProps) => {
   const [checkout, setCheckout] = useState(0);
 
   useEffect(() => {
@@ -23,6 +24,8 @@ const Modal = ({ open, onClose, cart }: modalProps) => {
   const proceedCheckout = () => {
     swal("Thanks for shopping", "Your order is on it's way", "success");
   };
+
+  
 
   return (
     <div className={`modal-container ${open ? "open" : ""}`} onClick={onClose}>
@@ -42,7 +45,7 @@ const Modal = ({ open, onClose, cart }: modalProps) => {
                   <button>{item.category}</button>
                   <p>{`$${item.price}`}</p>
                 </div>
-                <button className="btn">Remove</button>
+                <button className="btn" onClick={() => removeFromCart(item.id)}>Remove</button>
               </div>
             ))}
           </div>
@@ -59,7 +62,7 @@ const Modal = ({ open, onClose, cart }: modalProps) => {
               <p className="p">ORDER TOTAL:</p>
               <p>{`$${checkout.toFixed(2)}`}</p>
             </div>
-            <button onClick={() => proceedCheckout()}>
+            <button disabled={cart.length <= 0} onClick={() => proceedCheckout()}>
               Proceed to checkout
             </button>
           </div>
@@ -69,4 +72,4 @@ const Modal = ({ open, onClose, cart }: modalProps) => {
   );
 };
 
-export default Modal;
+export default Cart;
