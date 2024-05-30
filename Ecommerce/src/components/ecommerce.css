@@ -5,6 +5,10 @@
   padding: 20px 60px;
   height: 70px;
   border-bottom: 1px solid whitesmoke;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  background-color: white;
 }
 .navbar .logo {
   font-size: x-large;

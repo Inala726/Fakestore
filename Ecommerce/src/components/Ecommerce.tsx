@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cart from "./Cart";
 import swal from "sweetalert";
-// import React from 'react'
+import React from "react";
 
 export interface IProduct {
   id: number;
@@ -20,6 +20,7 @@ const Ecommerce = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [cart, setCart] = useState<IProduct[]>([]);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -58,8 +59,39 @@ const Ecommerce = () => {
   };
 
   const removeFromCart = (id: number) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this product!",
+      icon: "warning",
+      buttons: {
+        cancel: true,
+        confirm: true,
+      },
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+        swal("Poof! Your product has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your product is safe!");
+      }
+    });
   };
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+  const filteredItems =
+    products.filter((value) =>
+      value.title.toLowerCase().includes(search.toLowerCase())
+    ) &&
+    products.filter((value) =>
+      value.category.toLowerCase().includes(search.toLowerCase())
+    ) 
+  {
+  }
 
   return (
     <>
@@ -67,7 +99,12 @@ const Ecommerce = () => {
         <div className="logo">Fakestore</div>
         <div className="">
           <div className="search">
-            <input type="text" placeholder="Search products..." />
+            <input
+              type="text"
+              value={search}
+              onChange={handleSearch}
+              placeholder="Search by name,category..."
+            />
             <FaSearch />
           </div>
         </div>
@@ -90,7 +127,7 @@ const Ecommerce = () => {
         <h1>Available Products</h1>
       </div>
       <div className="products">
-        {products.map((product) => (
+        {filteredItems.map((product) => (
           <div className="product-card">
             <img src={product.image} alt="" />
             <p>{product.title}</p>

@@ -72,6 +72,9 @@
 .checkout {
   display: grid;
   line-height: 2.2;
+  height: max-content;
+  position: sticky;
+  top: 5.5rem;
 }
 .checkout .div {
   display: flex;

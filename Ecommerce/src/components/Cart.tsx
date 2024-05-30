@@ -1,7 +1,10 @@
+import { FaCartShopping } from "react-icons/fa6";
 import "./Cart.css";
 import { IProduct } from "./Ecommerce";
-import { useEffect, useState } from "react";
+import { useEffect, useState,  } from "react";
 import swal from "sweetalert";
+// import React from "react";
+
 
 interface modalProps {
   open: boolean;
@@ -25,13 +28,14 @@ const Cart = ({ open, onClose, cart, removeFromCart }: modalProps) => {
     swal("Thanks for shopping", "Your order is on it's way", "success");
   };
 
-  
 
   return (
     <div className={`modal-container ${open ? "open" : ""}`} onClick={onClose}>
       <div className={`modal`} onClick={(e) => e.stopPropagation()}>
         <div className="mh">
-          <p>Cart SHII</p>
+          <p>
+          <FaCartShopping/>
+          Cart SHII</p>
           <p className="close" onClick={onClose}>
             &times;
           </p>
