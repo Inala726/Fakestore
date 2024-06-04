@@ -1,4 +1,3 @@
-import { FaCartShopping } from "react-icons/fa6";
 import "./Cart.css";
 import { IProduct } from "./Ecommerce";
 import { useEffect, useState,  } from "react";
@@ -34,7 +33,6 @@ const Cart = ({ open, onClose, cart, removeFromCart }: modalProps) => {
       <div className={`modal`} onClick={(e) => e.stopPropagation()}>
         <div className="mh">
           <p>
-          <FaCartShopping/>
           Cart SHII</p>
           <p className="close" onClick={onClose}>
             &times;

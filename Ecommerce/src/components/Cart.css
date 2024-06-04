@@ -38,10 +38,11 @@
 .cart {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 10px;
+  width: 60%;
 }
 .cart-card {
-  width: 220px;
+  width: 100%;
   padding: 0.5rem;
   height: 200px;
   font-size: small;
@@ -87,4 +88,22 @@
   color: whitesmoke;
   border-radius: 7px;
   cursor: pointer;
+}
+
+@media screen and (max-width:1024px) {
+  .modal{
+    width: 90%;
+  }
+}
+@media screen and (max-width:790px){
+  .main-content{
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+  .checkout{
+    position: unset;
+  }
+  .cart{
+    width: 100%;
+  }
 }

@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import "./ecommerce.css";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaSquarespace } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cart from "./Cart";
@@ -83,29 +83,31 @@ const Ecommerce = () => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
-  const filteredItems =
-    products.filter((value) =>
-      value.title.toLowerCase().includes(search.toLowerCase())
-    ) &&
-    products.filter((value) =>
-      value.category.toLowerCase().includes(search.toLowerCase())
-    ) 
+  const filteredItems = products.filter(
+    (value) =>
+      value.title.toLowerCase().includes(search.toLowerCase()) ||
+      value.category.toLowerCase().includes(search.toLowerCase()) ||
+      value.price.toString().includes(search)
+  );
   {
   }
 
   return (
     <>
       <nav className="navbar">
-        <div className="logo">Fakestore</div>
+        <div className="logo">
+          <FaSquarespace />
+          Fakestore
+        </div>
         <div className="">
           <div className="search">
+            <FaSearch />
             <input
-              type="text"
+              type="search"
               value={search}
               onChange={handleSearch}
               placeholder="Search by name,category..."
             />
-            <FaSearch />
           </div>
         </div>
         <div className="third">
@@ -118,29 +120,42 @@ const Ecommerce = () => {
         </div>
       </nav>
       <div className="section">
-        <p>Try out some</p>
-        <p>
-          of our splendid <br /> Products
-        </p>
+        <div className="text">
+          <h1>Try out some of</h1>
+          <h1>our quality products</h1>
+        </div>
       </div>
       <div className="heading">
         <h1>Available Products</h1>
+        <div className="search">
+            <FaSearch />
+            <input
+              type="search"
+              value={search}
+              onChange={handleSearch}
+              placeholder="Search by name,category..."
+            />
+          </div>
       </div>
+
       <div className="products">
         {filteredItems.map((product) => (
           <div className="product-card">
-            <img src={product.image} alt="" />
-            <p>{product.title}</p>
+              <img src={product.image} alt="" />
+           <p>{product.title}</p>
             <div className="inner">
-              <button>{product.category}</button>
+              <div>{product.category}</div>
               <p>{`$${product.price}`}</p>
             </div>
-            <button className="btn" onClick={() => addToCart(product.id)}>
-              Add to cart
-            </button>
+            <div className="button">
+              <button className="btn" onClick={() => addToCart(product.id)}>
+                Add to cart
+              </button>
+            </div>
           </div>
         ))}
       </div>
+
       <Cart
         onClose={() => setModalOpen(false)}
         open={modalOpen}
