@@ -1,5 +1,5 @@
 import './App.css'
-import Ecommerce from './components/Ecommerce'
+import Ecommerce from './components/Index'
 
 function App() {
  

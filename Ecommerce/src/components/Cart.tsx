@@ -1,5 +1,5 @@
 import "./Cart.css";
-import { IProduct } from "./Ecommerce";
+import { IProduct } from "./Index";
 import { useEffect, useState,  } from "react";
 import swal from "sweetalert";
 // import React from "react";
