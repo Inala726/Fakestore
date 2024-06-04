@@ -128,21 +128,21 @@ const Ecommerce = () => {
       <div className="heading">
         <h1>Available Products</h1>
         <div className="search">
-            <FaSearch />
-            <input
-              type="search"
-              value={search}
-              onChange={handleSearch}
-              placeholder="Search by name,category..."
-            />
-          </div>
+          <FaSearch />
+          <input
+            type="search"
+            value={search}
+            onChange={handleSearch}
+            placeholder="Search by name,category..."
+          />
+        </div>
       </div>
 
       <div className="products">
         {filteredItems.map((product) => (
           <div className="product-card">
-              <img src={product.image} alt="" />
-           <p>{product.title}</p>
+            <img src={product.image} alt="" />
+            <p>{product.title}</p>
             <div className="inner">
               <div>{product.category}</div>
               <p>{`$${product.price}`}</p>
